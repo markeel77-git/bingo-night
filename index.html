@@ -6,14 +6,6 @@
 <title>Bingo Night – Orchard Hill Elementary</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@700;900&display=swap" rel="stylesheet">
 <style>
-/* ── PALETTE from flyer ──
-   Sky blue   #29b8d4  (primary brand)
-   Deep purple #4a1d96  (accent)
-   Purple mid  #7c3aed
-   White       #ffffff
-   Dark bg     #061820  (deep teal-dark for contrast)
-   Called red/yellow/green kept for legibility
-*/
 :root {
   --bg:#061820;
   --panel:#091f2a;
@@ -23,7 +15,6 @@
   --sky-border:rgba(41,184,212,0.3);
   --purple:#4a1d96;
   --purple-mid:#7c3aed;
-  --purple-dim:rgba(74,29,150,0.25);
   --red:#e05555; --red-bg:#2a0808;
   --yellow:#d4a000; --yellow-bg:#221800;
   --green:#18c060; --green-bg:#012a14;
@@ -34,28 +25,23 @@
 html,body{height:100%;width:100%;overflow:hidden}
 body{background:var(--bg);font-family:'Nunito',sans-serif;display:flex;flex-direction:column}
 
-/* ── TOP BAR ── */
+/* ══ TOP BAR ══ */
 #top-bar{
   display:flex;align-items:center;justify-content:space-between;
-  background:var(--purple);
-  padding:0 14px;height:46px;flex-shrink:0;position:relative;z-index:50;
+  background:var(--purple);padding:0 14px;height:46px;flex-shrink:0;
+  position:relative;z-index:50;
 }
 #top-bar-left{display:flex;align-items:center;gap:10px}
-#top-bar-icon{display:flex;align-items:center;flex-shrink:0}
-#top-bar-title{
-  font-family:'Bebas Neue',sans-serif;font-size:1.25rem;
-  color:var(--white);letter-spacing:0.12em;line-height:1;
-}
+#top-bar-title{font-family:'Bebas Neue',sans-serif;font-size:1.25rem;color:var(--white);letter-spacing:0.12em;line-height:1}
 #top-bar-sub{font-size:0.55rem;font-weight:700;color:rgba(255,255,255,0.55);letter-spacing:0.15em;text-transform:uppercase;margin-top:1px}
 #menu-btn{
   background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);border-radius:6px;
-  color:rgba(255,255,255,0.8);padding:6px 11px;cursor:pointer;font-size:0.95rem;line-height:1;
-  font-family:'Nunito',sans-serif;font-weight:900;font-size:0.75rem;letter-spacing:0.06em;
-  text-transform:uppercase;
+  color:rgba(255,255,255,0.8);padding:6px 11px;cursor:pointer;
+  font-family:'Nunito',sans-serif;font-weight:900;font-size:0.75rem;letter-spacing:0.06em;text-transform:uppercase;
 }
 #menu-btn:hover{background:rgba(255,255,255,0.22);color:#fff}
 
-/* ── DROPDOWN ── */
+/* ══ DROPDOWN ══ */
 #nav-menu{
   display:none;position:absolute;top:46px;right:14px;
   background:#0d1f2e;border:1px solid var(--border);border-radius:8px;
@@ -74,13 +60,13 @@ body{background:var(--bg);font-family:'Nunito',sans-serif;display:flex;flex-dire
 #menu-backdrop{display:none;position:fixed;inset:0;z-index:100}
 #menu-backdrop.open{display:block}
 
-/* ── VIEWS ── */
+/* ══ VIEWS ══ */
 .view{display:none;flex:1;flex-direction:column;overflow:hidden;min-height:0}
 .view.active{display:flex}
 
-/* ════════════════════════════════
-   PROJECTION VIEW
-════════════════════════════════ */
+/* ════════════════════════════════════════════
+   PROJECTION VIEW — shared structure
+════════════════════════════════════════════ */
 #view-projection{background:var(--bg)}
 
 #proj-header{
@@ -90,12 +76,8 @@ body{background:var(--bg);font-family:'Nunito',sans-serif;display:flex;flex-dire
   padding:8px 14px;flex-shrink:0;gap:8px;flex-wrap:wrap;
 }
 #proj-title-wrap{display:flex;align-items:center;gap:10px}
-#proj-title{
-  font-family:'Bebas Neue',sans-serif;font-size:clamp(1.2rem,3.5vw,2.4rem);
-  color:var(--sky);letter-spacing:0.08em;line-height:1;
-}
+#proj-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.2rem,3.5vw,2.4rem);color:var(--sky);letter-spacing:0.08em;line-height:1}
 #proj-school{font-size:0.55rem;font-weight:900;color:rgba(41,184,212,0.5);letter-spacing:0.18em;text-transform:uppercase;margin-top:2px}
-
 #proj-last-called{display:flex;flex-direction:column;align-items:center;flex-shrink:0}
 #proj-last-label{font-size:0.46rem;font-weight:900;letter-spacing:0.2em;color:#2a6070;text-transform:uppercase}
 #proj-last-num{
@@ -103,10 +85,7 @@ body{background:var(--bg);font-family:'Nunito',sans-serif;display:flex;flex-dire
   color:var(--green);line-height:1;min-width:65px;text-align:center;
   text-shadow:0 0 28px rgba(24,192,96,0.55);
 }
-#proj-round-badge{
-  font-size:0.46rem;font-weight:900;letter-spacing:0.18em;color:#2a6070;text-transform:uppercase;margin-top:1px;
-}
-
+#proj-round-badge{font-size:0.46rem;font-weight:900;letter-spacing:0.18em;color:#2a6070;text-transform:uppercase;margin-top:1px}
 #proj-legend{display:flex;gap:5px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
 .leg{display:flex;align-items:center;gap:3px;font-size:0.52rem;font-weight:900;color:#2a6070;letter-spacing:0.05em;text-transform:uppercase}
 .leg-dot{width:8px;height:8px;border-radius:2px;border:2px solid;flex-shrink:0}
@@ -115,9 +94,104 @@ body{background:var(--bg);font-family:'Nunito',sans-serif;display:flex;flex-dire
 .leg-dot.r{background:var(--red-bg);border-color:var(--red)}
 .leg-dot.d{background:var(--dim);border-color:var(--border)}
 
-/* Grid */
+/* ── PROJ BODY: holds grid area + sidebar ── */
+#proj-body{
+  flex:1;display:flex;flex-direction:row;overflow:hidden;min-height:0;
+}
+
+/* ════════════════════════════════════════════
+   PORTRAIT MODE — grid fills width, carousel bottom strip
+════════════════════════════════════════════ */
+#proj-grid-area{
+  flex:1;display:flex;flex-direction:column;overflow:hidden;min-width:0;
+}
+
+/* Portrait carousel (bottom strip) */
+#carousel-portrait{
+  flex-shrink:0;
+  background:linear-gradient(90deg,var(--purple) 0%,#3b0e7a 100%);
+  border-top:2px solid var(--purple-mid);
+  height:72px;overflow:hidden;position:relative;display:flex;align-items:center;
+}
+#car-p-inner{display:flex;align-items:center;height:100%}
+.car-p-slide{display:none;align-items:center;gap:14px;padding:0 20px;width:100%;height:100%}
+.car-p-slide.active{display:flex}
+.car-p-logo{
+  height:46px;width:46px;border-radius:7px;
+  background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.4rem;overflow:hidden;
+}
+.car-p-logo img{height:100%;width:100%;object-fit:contain;border-radius:6px}
+.car-p-sponsor-label{font-size:0.48rem;font-weight:900;letter-spacing:0.2em;color:rgba(255,255,255,0.4);text-transform:uppercase;margin-bottom:2px}
+.car-p-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(1rem,2.5vw,1.45rem);color:var(--white);letter-spacing:0.06em;line-height:1.1}
+.car-p-tagline{font-size:0.62rem;font-weight:700;color:rgba(255,255,255,0.45);letter-spacing:0.07em;margin-top:1px}
+.car-p-dots{position:absolute;right:14px;bottom:6px;display:flex;gap:4px}
+.car-p-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.2);transition:background 0.3s}
+.car-p-dot.on{background:var(--sky)}
+#car-p-progress{position:absolute;bottom:0;left:0;height:2px;background:var(--sky);width:0%;opacity:0.6}
+
+/* ════════════════════════════════════════════
+   LANDSCAPE SIDEBAR — right 20%, vertical carousel
+════════════════════════════════════════════ */
+#proj-sidebar{
+  display:none; /* shown via JS in landscape */
+  flex-direction:column;
+  width:20%;flex-shrink:0;
+  background:linear-gradient(180deg,var(--purple) 0%,#2a0870 100%);
+  border-left:2px solid var(--purple-mid);
+  overflow:hidden;
+}
+#sidebar-label{
+  font-size:0.5rem;font-weight:900;letter-spacing:0.22em;text-transform:uppercase;
+  color:rgba(255,255,255,0.35);text-align:center;padding:8px 0 4px;flex-shrink:0;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+/* Vertical carousel slot container */
+#car-v-slots{
+  flex:1;display:flex;flex-direction:column;gap:0;overflow:hidden;
+}
+
+/* Each visible slot */
+.car-v-slot{
+  flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:6px;padding:8px;
+  border-bottom:1px solid rgba(255,255,255,0.07);
+  transition:opacity 0.5s ease;
+  overflow:hidden;
+}
+.car-v-slot:last-child{border-bottom:none}
+.car-v-slot.fading{opacity:0}
+
+.car-v-logo{
+  width:52px;height:52px;border-radius:8px;
+  background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.18);
+  display:flex;align-items:center;justify-content:center;font-size:1.6rem;
+  overflow:hidden;flex-shrink:0;
+}
+.car-v-logo img{width:100%;height:100%;object-fit:contain;border-radius:7px}
+.car-v-name{
+  font-family:'Bebas Neue',sans-serif;font-size:clamp(0.75rem,1.2vw,1rem);
+  color:var(--white);letter-spacing:0.05em;line-height:1.1;text-align:center;
+  word-break:break-word;
+}
+.car-v-tagline{
+  font-size:clamp(0.48rem,0.7vw,0.62rem);font-weight:700;
+  color:rgba(255,255,255,0.4);letter-spacing:0.05em;text-align:center;
+  line-height:1.2;
+}
+
+/* ════════════════════════════════════════════
+   GRID — shared cells, landscape overrides font
+════════════════════════════════════════════ */
 .grid-wrap{flex:1;padding:6px;overflow:hidden;min-height:0}
-.b-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:3px;height:100%}
+
+/* Portrait grid: 5 equal columns, cells stretch to fill */
+.b-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:3px;height:100%;
+}
 .b-col{display:flex;flex-direction:column;gap:3px;height:100%}
 .col-lbl{
   font-family:'Bebas Neue',sans-serif;font-size:clamp(0.85rem,2.2vw,1.8rem);
@@ -127,7 +201,9 @@ body{background:var(--bg);font-family:'Nunito',sans-serif;display:flex;flex-dire
 }
 .num-cell{
   flex:1;border-radius:5px;display:flex;align-items:center;justify-content:center;
-  font-family:'Bebas Neue',sans-serif;font-size:clamp(0.7rem,1.6vw,1.5rem);
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(0.7rem,1.6vw,1.5rem);
+  font-weight:900;
   border:2px solid transparent;user-select:none;min-height:0;line-height:1;
   transition:background 0.25s,color 0.25s,border-color 0.25s;
 }
@@ -143,36 +219,31 @@ body{background:var(--bg);font-family:'Nunito',sans-serif;display:flex;flex-dire
   50%{box-shadow:0 0 22px rgba(24,192,96,0.55)}
 }
 
-/* ── CAROUSEL ── */
-#carousel{
-  flex-shrink:0;
-  background:linear-gradient(90deg,var(--purple) 0%,#3b0e7a 100%);
-  border-top:2px solid var(--purple-mid);
-  height:72px;overflow:hidden;position:relative;display:flex;align-items:center;
+/* ── LANDSCAPE GRID OVERRIDES ──
+   Cells shrink to intrinsic width (just fit the number + margin).
+   Font becomes large and bold. Grid columns auto-size.
+*/
+body.landscape .b-grid{
+  grid-template-columns:repeat(5,1fr);
+  align-content:start;
+  height:100%;
 }
-#carousel-inner{display:flex;align-items:center;height:100%;}
-.car-slide{display:none;align-items:center;gap:14px;padding:0 20px;width:100%;height:100%}
-.car-slide.active{display:flex}
-.car-logo{
-  height:46px;width:46px;border-radius:7px;
-  background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);
-  display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.4rem;overflow:hidden;
+body.landscape .b-col{
+  height:100%;
 }
-.car-logo img{height:100%;width:100%;object-fit:contain;border-radius:6px}
-.car-sponsor-label{
-  font-size:0.48rem;font-weight:900;letter-spacing:0.2em;
-  color:rgba(255,255,255,0.4);text-transform:uppercase;margin-bottom:2px;
+body.landscape .col-lbl{
+  font-size:clamp(1.4rem,2.8vw,2.8rem);
+  padding:4px 0;
 }
-.car-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(1rem,2.5vw,1.45rem);color:var(--white);letter-spacing:0.06em;line-height:1.1}
-.car-tagline{font-size:0.62rem;font-weight:700;color:rgba(255,255,255,0.45);letter-spacing:0.07em;margin-top:1px}
-.car-dots{position:absolute;right:14px;bottom:6px;display:flex;gap:4px}
-.car-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.2);transition:background 0.3s}
-.car-dot.on{background:var(--sky)}
-#car-progress{position:absolute;bottom:0;left:0;height:2px;background:var(--sky);width:0%;opacity:0.6}
+body.landscape .num-cell{
+  font-size:clamp(1.6rem,3vw,3.2rem);
+  border-radius:6px;
+  border-width:3px;
+}
 
-/* ════════════════════════════════
+/* ════════════════════════════════════════════
    OPERATOR VIEW
-════════════════════════════════ */
+════════════════════════════════════════════ */
 #view-operator{overflow-y:auto;background:var(--panel)}
 .op-section{border-bottom:1px solid var(--border);padding:16px}
 .op-section:last-child{border-bottom:none}
@@ -181,11 +252,8 @@ body{background:var(--bg);font-family:'Nunito',sans-serif;display:flex;flex-dire
   color:var(--sky);margin-bottom:10px;
   display:flex;align-items:center;justify-content:space-between;
 }
-
-/* Mode toggle */
 #call-mode-toggle{
-  display:flex;background:var(--bg);border:1px solid var(--border);
-  border-radius:6px;overflow:hidden;
+  display:flex;background:var(--bg);border:1px solid var(--border);border-radius:6px;overflow:hidden;
 }
 .cmt-btn{
   flex:1;padding:6px 10px;border:none;cursor:pointer;
@@ -193,8 +261,6 @@ body{background:var(--bg);font-family:'Nunito',sans-serif;display:flex;flex-dire
   letter-spacing:0.06em;text-transform:uppercase;background:none;color:#2a6070;transition:all 0.15s;
 }
 .cmt-btn.on{background:var(--sky);color:#021018}
-
-/* Type input */
 #call-type-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
 #num-input{
   font-family:'Bebas Neue',sans-serif;font-size:1.8rem;width:88px;
@@ -202,8 +268,6 @@ body{background:var(--bg);font-family:'Nunito',sans-serif;display:flex;flex-dire
   color:var(--white);padding:4px 10px;text-align:center;
 }
 #num-input:focus{outline:none;border-color:var(--sky)}
-
-/* Visual board */
 #call-visual{display:none}
 .op-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:3px;margin-bottom:8px}
 .op-col{display:flex;flex-direction:column;gap:3px}
@@ -222,28 +286,21 @@ body{background:var(--bg);font-family:'Nunito',sans-serif;display:flex;flex-dire
 .op-cell.oc-called{background:var(--red-bg);color:var(--red);border-color:rgba(224,85,85,0.38);cursor:default}
 .op-cell.oc-prev{background:var(--yellow-bg);color:var(--yellow);border-color:rgba(212,160,0,0.38)}
 .op-cell.oc-latest{background:var(--green-bg);color:var(--green);border-color:rgba(24,192,96,0.5)}
-
-/* Chips */
 #called-chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px;min-height:24px;align-items:center}
 .chip{font-family:'Bebas Neue',sans-serif;font-size:0.95rem;padding:2px 9px;border-radius:5px;border:2px solid;cursor:default}
 .chip.old{color:var(--red);background:var(--red-bg);border-color:rgba(224,85,85,0.38)}
 .chip.prev{color:var(--yellow);background:var(--yellow-bg);border-color:rgba(212,160,0,0.38)}
 .chip.latest{color:var(--green);background:var(--green-bg);border-color:rgba(24,192,96,0.5)}
-
-/* Buttons */
 .btn{
   font-family:'Nunito',sans-serif;font-weight:900;font-size:0.78rem;
   letter-spacing:0.06em;text-transform:uppercase;border:none;
   border-radius:7px;padding:8px 14px;cursor:pointer;transition:all 0.15s;
 }
 .btn:active{transform:scale(0.96)}
-.btn-green{background:var(--green);color:#010f07}.btn-green:hover{background:#22d876}
 .btn-call{background:var(--sky);color:#021018}.btn-call:hover{background:#3dd5f0}
 .btn-red{background:var(--red);color:#fff}.btn-red:hover{background:#f06060}
 .btn-gray{background:var(--border);color:var(--light)}.btn-gray:hover{background:#174055}
 .btn-purple{background:var(--purple-mid);color:#fff}.btn-purple:hover{background:#9451ff}
-
-/* Sponsors */
 #sponsor-list{display:flex;flex-direction:column;gap:7px;margin-bottom:12px}
 .sp-row{display:flex;align-items:center;gap:10px;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:8px 12px}
 .sp-logo-thumb{width:36px;height:36px;border-radius:5px;flex-shrink:0;background:rgba(255,255,255,0.05);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.2rem;overflow:hidden}
@@ -256,8 +313,6 @@ body{background:var(--bg);font-family:'Nunito',sans-serif;display:flex;flex-dire
 .btn-sm:active{transform:scale(0.95)}
 .btn-sm-show{background:var(--sky);color:#021018}.btn-sm-show:hover{background:#3dd5f0}
 .btn-sm-del{background:none;border:1px solid #1a4050;color:#2a6070}.btn-sm-del:hover{border-color:var(--red);color:var(--red)}
-
-/* Add form */
 #add-sp-wrap{display:flex;flex-direction:column;gap:8px}
 #add-sp-row{display:flex;gap:8px;flex-wrap:wrap;align-items:flex-start}
 .sp-input{
@@ -267,8 +322,6 @@ body{background:var(--bg);font-family:'Nunito',sans-serif;display:flex;flex-dire
 }
 .sp-input:focus{outline:none;border-color:var(--sky)}
 .sp-input::placeholder{color:#0e3040}
-
-/* Logo upload */
 #logo-upload-row{display:flex;align-items:center;gap:10px}
 #logo-preview{width:44px;height:44px;border-radius:6px;background:rgba(255,255,255,0.04);border:1px dashed #1a4050;display:flex;align-items:center;justify-content:center;font-size:1.3rem;color:#1a4050;overflow:hidden;flex-shrink:0}
 #logo-preview img{width:100%;height:100%;object-fit:contain;border-radius:5px}
@@ -276,9 +329,7 @@ body{background:var(--bg);font-family:'Nunito',sans-serif;display:flex;flex-dire
 #logo-btn{font-family:'Nunito',sans-serif;font-weight:900;font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;border:1px solid var(--border);border-radius:6px;padding:7px 12px;cursor:pointer;color:#2a6070;background:none;transition:all 0.15s}
 #logo-btn:hover{border-color:var(--sky);color:var(--sky)}
 
-/* ════════════════════════════════
-   SPONSOR FULLSCREEN OVERLAY
-════════════════════════════════ */
+/* ══ SPONSOR OVERLAY ══ */
 #sp-overlay{
   display:none;position:fixed;inset:0;z-index:999;
   background:linear-gradient(160deg,#0a0620 0%,#050d18 100%);
@@ -294,24 +345,12 @@ body{background:var(--bg);font-family:'Nunito',sans-serif;display:flex;flex-dire
   padding:6px 14px;cursor:pointer;font-family:'Nunito',sans-serif;text-transform:uppercase;
 }
 #sp-overlay-close:hover{color:#aaa;border-color:#555}
-#sp-badge{
-  font-size:0.62rem;font-weight:900;letter-spacing:0.25em;color:var(--sky);
-  text-transform:uppercase;background:rgba(41,184,212,0.08);
-  border:1px solid rgba(41,184,212,0.22);border-radius:20px;padding:4px 18px;
-}
+#sp-badge{font-size:0.62rem;font-weight:900;letter-spacing:0.25em;color:var(--sky);text-transform:uppercase;background:rgba(41,184,212,0.08);border:1px solid rgba(41,184,212,0.22);border-radius:20px;padding:4px 18px}
 .sp-stars{color:var(--sky);font-size:1rem;letter-spacing:6px;opacity:0.3}
-#sp-overlay-logo{
-  width:130px;height:130px;border-radius:14px;background:rgba(255,255,255,0.05);
-  border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;
-  justify-content:center;font-size:3rem;overflow:hidden;
-}
+#sp-overlay-logo{width:130px;height:130px;border-radius:14px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;font-size:3rem;overflow:hidden}
 #sp-overlay-logo img{width:100%;height:100%;object-fit:contain;border-radius:13px}
 #sp-overlay-logo.hidden{display:none}
-#sp-overlay-name{
-  font-family:'Bebas Neue',sans-serif;font-size:clamp(2.4rem,7vw,5.5rem);
-  color:var(--white);letter-spacing:0.06em;line-height:1.1;
-  text-shadow:0 0 60px rgba(41,184,212,0.2);
-}
+#sp-overlay-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.4rem,7vw,5.5rem);color:var(--white);letter-spacing:0.06em;line-height:1.1;text-shadow:0 0 60px rgba(41,184,212,0.2)}
 #sp-overlay-prize{font-size:clamp(0.8rem,1.8vw,1rem);font-weight:700;color:#2a6070;letter-spacing:0.08em}
 #sp-overlay-thanks{font-size:0.68rem;font-weight:900;letter-spacing:0.18em;color:#1a3a4a;text-transform:uppercase}
 </style>
@@ -321,27 +360,18 @@ body{background:var(--bg);font-family:'Nunito',sans-serif;display:flex;flex-dire
 <!-- TOP BAR -->
 <div id="top-bar">
   <div id="top-bar-left">
-    <!-- Bingo cage SVG icon -->
-    <div id="top-bar-icon">
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- cage circle -->
-        <circle cx="14" cy="13" r="10" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" fill="none"/>
-        <!-- horizontal band -->
-        <ellipse cx="14" cy="13" rx="10" ry="4" stroke="rgba(255,255,255,0.35)" stroke-width="1" fill="none"/>
-        <!-- vertical band -->
-        <ellipse cx="14" cy="13" rx="4" ry="10" stroke="rgba(255,255,255,0.35)" stroke-width="1" fill="none"/>
-        <!-- stand -->
-        <line x1="14" y1="23" x2="14" y2="26" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
-        <line x1="10" y1="26" x2="18" y2="26" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round"/>
-        <!-- handle -->
-        <line x1="24" y1="13" x2="27" y2="13" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round"/>
-        <!-- bingo balls inside -->
-        <circle cx="11" cy="11" r="2.8" fill="white" opacity="0.9"/>
-        <text x="11" y="12.2" text-anchor="middle" font-size="3" fill="#4a1d96" font-weight="bold" font-family="sans-serif">7</text>
-        <circle cx="17" cy="15" r="2.8" fill="white" opacity="0.85"/>
-        <text x="17" y="16.2" text-anchor="middle" font-size="3" fill="#29b8d4" font-weight="bold" font-family="sans-serif">3</text>
-      </svg>
-    </div>
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="14" cy="13" r="10" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" fill="none"/>
+      <ellipse cx="14" cy="13" rx="10" ry="4" stroke="rgba(255,255,255,0.35)" stroke-width="1" fill="none"/>
+      <ellipse cx="14" cy="13" rx="4" ry="10" stroke="rgba(255,255,255,0.35)" stroke-width="1" fill="none"/>
+      <line x1="14" y1="23" x2="14" y2="26" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+      <line x1="10" y1="26" x2="18" y2="26" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="24" y1="13" x2="27" y2="13" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+      <circle cx="11" cy="11" r="2.8" fill="white" opacity="0.9"/>
+      <text x="11" y="12.2" text-anchor="middle" font-size="3" fill="#4a1d96" font-weight="bold" font-family="sans-serif">7</text>
+      <circle cx="17" cy="15" r="2.8" fill="white" opacity="0.85"/>
+      <text x="17" y="16.2" text-anchor="middle" font-size="3" fill="#29b8d4" font-weight="bold" font-family="sans-serif">3</text>
+    </svg>
     <div>
       <div id="top-bar-title">Bingo Night &amp; Silent Auction</div>
       <div id="top-bar-sub">Orchard Hill Elementary</div>
@@ -352,19 +382,15 @@ body{background:var(--bg);font-family:'Nunito',sans-serif;display:flex;flex-dire
 
 <div id="menu-backdrop" onclick="closeMenu()"></div>
 <div id="nav-menu">
-  <div class="nav-item active" id="nav-pr" onclick="switchView('projection')">
-    <span class="nav-icon">📺</span> Projection Board
-  </div>
-  <div class="nav-item" id="nav-op" onclick="switchView('operator')">
-    <span class="nav-icon">🎮</span> Operator Controls
-  </div>
+  <div class="nav-item active" id="nav-pr" onclick="switchView('projection')"><span class="nav-icon">📺</span> Projection Board</div>
+  <div class="nav-item" id="nav-op" onclick="switchView('operator')"><span class="nav-icon">🎮</span> Operator Controls</div>
 </div>
 
 <!-- ══ PROJECTION VIEW ══ -->
 <div id="view-projection" class="view active">
+
   <div id="proj-header">
     <div id="proj-title-wrap">
-      <!-- Larger bingo cage for projection header -->
       <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="18" cy="17" r="13" stroke="#29b8d4" stroke-width="1.8" fill="none" opacity="0.6"/>
         <ellipse cx="18" cy="17" rx="13" ry="5.5" stroke="#29b8d4" stroke-width="1.2" fill="none" opacity="0.4"/>
@@ -382,13 +408,11 @@ body{background:var(--bg);font-family:'Nunito',sans-serif;display:flex;flex-dire
         <div id="proj-school">Orchard Hill Elementary</div>
       </div>
     </div>
-
     <div id="proj-last-called">
       <div id="proj-last-label">Last Called</div>
       <div id="proj-last-num">—</div>
       <div id="proj-round-badge">Round <span id="proj-round">1</span> &nbsp;·&nbsp; <span id="proj-count">0</span> called</div>
     </div>
-
     <div id="proj-legend">
       <div class="leg"><div class="leg-dot g"></div>Latest</div>
       <div class="leg"><div class="leg-dot y"></div>Prev</div>
@@ -397,14 +421,29 @@ body{background:var(--bg);font-family:'Nunito',sans-serif;display:flex;flex-dire
     </div>
   </div>
 
-  <div class="grid-wrap">
-    <div id="proj-grid" class="b-grid"></div>
-  </div>
+  <!-- Body: grid area (left) + sidebar (right, landscape only) -->
+  <div id="proj-body">
 
-  <div id="carousel">
-    <div id="carousel-inner"></div>
-    <div id="car-dots" class="car-dots"></div>
-    <div id="car-progress"></div>
+    <div id="proj-grid-area">
+      <div class="grid-wrap">
+        <div id="proj-grid" class="b-grid"></div>
+      </div>
+      <!-- Portrait-only bottom carousel -->
+      <div id="carousel-portrait">
+        <div id="car-p-inner"></div>
+        <div id="car-p-dots" class="car-p-dots"></div>
+        <div id="car-p-progress"></div>
+      </div>
+    </div>
+
+    <!-- Landscape-only right sidebar -->
+    <div id="proj-sidebar">
+      <div id="sidebar-label">Our Sponsors</div>
+      <div id="car-v-slots">
+        <!-- 3 slots populated by JS -->
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -419,7 +458,6 @@ body{background:var(--bg);font-family:'Nunito',sans-serif;display:flex;flex-dire
         <button class="cmt-btn" id="cmt-visual" onclick="setCallMode('visual')">🎱 Board</button>
       </div>
     </div>
-
     <div id="call-type">
       <div id="call-type-row">
         <input type="number" id="num-input" min="1" max="75" placeholder="1–75" inputmode="numeric">
@@ -428,7 +466,6 @@ body{background:var(--bg);font-family:'Nunito',sans-serif;display:flex;flex-dire
         <button class="btn btn-red" onclick="newRound()">New Round</button>
       </div>
     </div>
-
     <div id="call-visual">
       <div id="op-grid" class="op-grid"></div>
       <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:4px">
@@ -436,7 +473,6 @@ body{background:var(--bg);font-family:'Nunito',sans-serif;display:flex;flex-dire
         <button class="btn btn-red" onclick="newRound()">New Round</button>
       </div>
     </div>
-
     <div id="called-chips"></div>
   </div>
 
@@ -475,7 +511,8 @@ body{background:var(--bg);font-family:'Nunito',sans-serif;display:flex;flex-dire
 <script>
 const COLS={B:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],I:[16,17,18,19,20,21,22,23,24,25,26,27,28,29,30],N:[31,32,33,34,35,36,37,38,39,40,41,42,43,44,45],G:[46,47,48,49,50,51,52,53,54,55,56,57,58,59,60],O:[61,62,63,64,65,66,67,68,69,70,71,72,73,74,75]};
 const STORAGE_KEY='bingo_state_v2';
-const CAROUSEL_INTERVAL=30000;
+const CAROUSEL_INTERVAL=30000; // ms per slide advance
+const SLOTS=3; // visible sponsor slots in landscape sidebar
 
 let called=[];
 let round=1;
@@ -489,29 +526,39 @@ let sponsors=[
 ];
 let pendingLogoData=null;
 let callMode='type';
-let carIdx=0;
-let carProgressTimer=null;
 
-/* ── SYNC ── */
+// Carousel state — shared index, separate timers
+let carTopIdx=0;       // index of the topmost visible slot in vertical carousel
+let carPortraitIdx=0;  // index for portrait bottom carousel
+let carTimer=null;
+
+/* ══ PERSIST / SYNC ══ */
 function saveState(){
   try{localStorage.setItem(STORAGE_KEY,JSON.stringify({called,round,sponsors:sponsors.map(s=>({name:s.name,tagline:s.tagline,logo:s.logo,emoji:s.emoji}))}));}catch(e){}
 }
 function loadState(){
   try{
-    const raw=localStorage.getItem(STORAGE_KEY);
-    if(!raw)return;
+    const raw=localStorage.getItem(STORAGE_KEY);if(!raw)return;
     const s=JSON.parse(raw);
     if(Array.isArray(s.called))called=s.called;
     if(typeof s.round==='number')round=s.round;
     if(Array.isArray(s.sponsors)&&s.sponsors.length)sponsors=s.sponsors;
   }catch(e){}
 }
-window.addEventListener('storage',e=>{
-  if(e.key!==STORAGE_KEY)return;
-  loadState();refreshAll();
-});
+window.addEventListener('storage',e=>{if(e.key!==STORAGE_KEY)return;loadState();refreshAll();});
 
-/* ── NAV ── */
+/* ══ ORIENTATION DETECTION ══ */
+function isLandscape(){return window.innerWidth>window.innerHeight&&window.innerWidth>600;}
+
+function applyLayout(){
+  const land=isLandscape();
+  document.body.classList.toggle('landscape',land);
+  document.getElementById('proj-sidebar').style.display=land?'flex':'none';
+  document.getElementById('carousel-portrait').style.display=land?'none':'flex';
+  if(land){fillVerticalSlots();}
+}
+
+/* ══ NAV ══ */
 function toggleMenu(){
   const m=document.getElementById('nav-menu'),b=document.getElementById('menu-backdrop');
   const open=m.classList.contains('open');
@@ -526,13 +573,11 @@ function switchView(id){
   document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
   document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
   document.getElementById('view-'+id).classList.add('active');
-  // nav id prefix: 'pr' for projection, 'op' for operator
-  const navId=id==='projection'?'nav-pr':'nav-op';
-  document.getElementById(navId).classList.add('active');
-  if(id==='projection')refreshGrid();
+  document.getElementById(id==='projection'?'nav-pr':'nav-op').classList.add('active');
+  if(id==='projection'){refreshGrid();applyLayout();}
 }
 
-/* ── BUILD GRIDS ── */
+/* ══ BUILD GRIDS ══ */
 function buildGrids(){
   const pg=document.getElementById('proj-grid');pg.innerHTML='';
   const og=document.getElementById('op-grid');og.innerHTML='';
@@ -550,14 +595,13 @@ function buildGrids(){
   });
 }
 
-/* ── REFRESH ── */
+/* ══ REFRESH ══ */
 function refreshGrid(){
   const len=called.length;
   document.querySelectorAll('.num-cell').forEach(c=>c.className='num-cell unc');
   document.querySelectorAll('.op-cell').forEach(c=>c.className='op-cell');
   called.forEach((n,i)=>{
-    const pc=document.getElementById('pc'+n);
-    const oc=document.getElementById('oc'+n);
+    const pc=document.getElementById('pc'+n),oc=document.getElementById('oc'+n);
     if(i===len-1){if(pc)pc.className='num-cell latest';if(oc)oc.className='op-cell oc-latest';}
     else if(i===len-2){if(pc)pc.className='num-cell prev';if(oc)oc.className='op-cell oc-prev';}
     else{if(pc)pc.className='num-cell old';if(oc)oc.className='op-cell oc-called';}
@@ -580,9 +624,9 @@ function refreshChips(){
     chip.textContent=n;wrap.appendChild(chip);
   });
 }
-function refreshAll(){refreshGrid();refreshHeader();refreshChips();renderSponsors();buildCarousel();}
+function refreshAll(){refreshGrid();refreshHeader();refreshChips();renderSponsors();buildAllCarousels();}
 
-/* ── CALL LOGIC ── */
+/* ══ CALL LOGIC ══ */
 function doCall(n){
   if(!n||n<1||n>75||called.includes(n))return false;
   called.push(n);saveState();refreshGrid();refreshHeader();refreshChips();return true;
@@ -593,16 +637,10 @@ function callNumber(){
 }
 document.getElementById('num-input').addEventListener('keydown',e=>{if(e.key==='Enter')callNumber();});
 function callFromBoard(n){if(!called.includes(n))doCall(n);}
-function undoLast(){
-  if(!called.length)return;
-  called.pop();saveState();refreshGrid();refreshHeader();refreshChips();
-}
-function newRound(){
-  if(!confirm('Clear all called numbers and start a new round?'))return;
-  called=[];round++;saveState();refreshAll();
-}
+function undoLast(){if(!called.length)return;called.pop();saveState();refreshGrid();refreshHeader();refreshChips();}
+function newRound(){if(!confirm('Clear all called numbers and start a new round?'))return;called=[];round++;saveState();refreshAll();}
 
-/* ── CALL MODE ── */
+/* ══ CALL MODE ══ */
 function setCallMode(mode){
   callMode=mode;
   document.getElementById('call-type').style.display=mode==='type'?'block':'none';
@@ -612,7 +650,7 @@ function setCallMode(mode){
   if(mode==='type')setTimeout(()=>document.getElementById('num-input').focus(),50);
 }
 
-/* ── SPONSORS ── */
+/* ══ SPONSORS ══ */
 function handleLogo(e){
   const file=e.target.files[0];if(!file)return;
   const reader=new FileReader();
@@ -631,11 +669,11 @@ function addSponsor(){
   document.getElementById('logo-preview').innerHTML='🏢';
   document.getElementById('logo-filename').textContent='';
   document.getElementById('logo-file').value='';
-  nameEl.focus();saveState();renderSponsors();buildCarousel();
+  nameEl.focus();saveState();renderSponsors();buildAllCarousels();
 }
 document.getElementById('sp-name-in').addEventListener('keydown',e=>{if(e.key==='Enter')document.getElementById('sp-prize-in').focus();});
 document.getElementById('sp-prize-in').addEventListener('keydown',e=>{if(e.key==='Enter')addSponsor();});
-function delSponsor(i){sponsors.splice(i,1);saveState();renderSponsors();buildCarousel();}
+function delSponsor(i){sponsors.splice(i,1);saveState();renderSponsors();buildAllCarousels();}
 function showSponsorOverlay(i){
   const s=sponsors[i];
   const logoEl=document.getElementById('sp-overlay-logo');
@@ -647,64 +685,166 @@ function showSponsorOverlay(i){
 }
 function closeSponsorOverlay(){document.getElementById('sp-overlay').classList.remove('on');}
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeSponsorOverlay();});
-
 function renderSponsors(){
   const list=document.getElementById('sponsor-list');list.innerHTML='';
   if(!sponsors.length){list.innerHTML='<div style="color:#0e3040;font-size:0.78rem;font-weight:700;padding:2px 0 10px">No sponsors yet — add one below.</div>';return;}
   sponsors.forEach((s,i)=>{
     const row=document.createElement('div');row.className='sp-row';
     const logoHtml=s.logo?'<div class="sp-logo-thumb"><img src="'+s.logo+'"></div>':'<div class="sp-logo-thumb" style="font-size:1.3rem">'+(s.emoji||'🏢')+'</div>';
-    row.innerHTML=logoHtml+
-      '<div class="sp-info"><div class="sp-name">'+esc(s.name)+'</div>'+(s.tagline?'<div class="sp-prize">'+esc(s.tagline)+'</div>':'')+'</div>'+
-      '<div class="sp-btns"><button class="btn-sm btn-sm-show" onclick="showSponsorOverlay('+i+')">Show</button><button class="btn-sm btn-sm-del" onclick="delSponsor('+i+')">✕</button></div>';
+    row.innerHTML=logoHtml+'<div class="sp-info"><div class="sp-name">'+esc(s.name)+'</div>'+(s.tagline?'<div class="sp-prize">'+esc(s.tagline)+'</div>':'')+'</div>'+'<div class="sp-btns"><button class="btn-sm btn-sm-show" onclick="showSponsorOverlay('+i+')">Show</button><button class="btn-sm btn-sm-del" onclick="delSponsor('+i+')">✕</button></div>';
     list.appendChild(row);
   });
 }
 
-/* ── CAROUSEL ── */
-function buildCarousel(){
-  const inner=document.getElementById('carousel-inner'),dotsEl=document.getElementById('car-dots');
+/* ══ PORTRAIT CAROUSEL (bottom strip) ══ */
+function buildPortraitCarousel(){
+  const inner=document.getElementById('car-p-inner');
+  const dotsEl=document.getElementById('car-p-dots');
   inner.innerHTML='';dotsEl.innerHTML='';
-  const car=document.getElementById('carousel');
-  if(!sponsors.length){car.style.display='none';return;}
-  car.style.display='flex';
+  const car=document.getElementById('carousel-portrait');
+  if(!sponsors.length){car.style.visibility='hidden';return;}
+  car.style.visibility='visible';
   sponsors.forEach((s,i)=>{
     const slide=document.createElement('div');
-    slide.className='car-slide'+(i===0?' active':'');slide.id='slide'+i;
-    const logoHtml=s.logo?'<div class="car-logo"><img src="'+s.logo+'"></div>':'<div class="car-logo" style="font-size:1.6rem">'+(s.emoji||'🏢')+'</div>';
-    slide.innerHTML=logoHtml+
-      '<div class="car-text"><div class="car-sponsor-label">Thank you, sponsor!</div><div class="car-name">'+esc(s.name)+'</div><div class="car-tagline">'+(s.tagline?esc(s.tagline):'Orchard Hill Elementary')+'</div></div>';
+    slide.className='car-p-slide'+(i===0?' active':'');slide.id='cps'+i;
+    const logoHtml=s.logo?'<div class="car-p-logo"><img src="'+s.logo+'"></div>':'<div class="car-p-logo" style="font-size:1.6rem">'+(s.emoji||'🏢')+'</div>';
+    slide.innerHTML=logoHtml+'<div><div class="car-p-sponsor-label">Thank you, sponsor!</div><div class="car-p-name">'+esc(s.name)+'</div><div class="car-p-tagline">'+(s.tagline?esc(s.tagline):'Orchard Hill Elementary')+'</div></div>';
     inner.appendChild(slide);
-    const dot=document.createElement('div');dot.className='car-dot'+(i===0?' on':'');dot.id='dot'+i;dotsEl.appendChild(dot);
+    const dot=document.createElement('div');dot.className='car-p-dot'+(i===0?' on':'');dot.id='cpd'+i;dotsEl.appendChild(dot);
   });
-  carIdx=0;startCarousel();
+  carPortraitIdx=0;
 }
-function goToSlide(idx){
-  document.querySelectorAll('.car-slide').forEach(s=>s.classList.remove('active'));
-  document.querySelectorAll('.car-dot').forEach(d=>d.classList.remove('on'));
-  carIdx=(idx+sponsors.length)%sponsors.length;
-  const slide=document.getElementById('slide'+carIdx),dot=document.getElementById('dot'+carIdx);
-  if(slide)slide.classList.add('active');if(dot)dot.classList.add('on');
-}
-function startCarousel(){
-  clearInterval(carProgressTimer);
-  if(sponsors.length<=1)return;
-  const bar=document.getElementById('car-progress');
-  let elapsed=0;const tick=100;
-  bar.style.width='0%';
-  carProgressTimer=setInterval(()=>{
-    elapsed+=tick;
-    bar.style.width=Math.min(elapsed/CAROUSEL_INTERVAL*100,100)+'%';
-    if(elapsed>=CAROUSEL_INTERVAL){elapsed=0;bar.style.width='0%';goToSlide(carIdx+1);}
-  },tick);
+function advancePortraitCarousel(){
+  if(!sponsors.length)return;
+  document.querySelectorAll('.car-p-slide').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.car-p-dot').forEach(d=>d.classList.remove('on'));
+  carPortraitIdx=(carPortraitIdx+1)%sponsors.length;
+  const slide=document.getElementById('cps'+carPortraitIdx);
+  const dot=document.getElementById('cpd'+carPortraitIdx);
+  if(slide)slide.classList.add('active');
+  if(dot)dot.classList.add('on');
 }
 
+/* ══ VERTICAL CAROUSEL (landscape sidebar, 3 slots) ══
+   carTopIdx = index of sponsor shown in slot 0 (top).
+   Slots 1 and 2 show carTopIdx+1, carTopIdx+2 (wrapping).
+   On each tick: fade out bottom slot, shift everything up,
+   load new sponsor into top, fade in.
+*/
+function sponsorAt(i){
+  if(!sponsors.length)return null;
+  return sponsors[((i%sponsors.length)+sponsors.length)%sponsors.length];
+}
+
+function buildVerticalSlots(){
+  const container=document.getElementById('car-v-slots');
+  container.innerHTML='';
+  for(let i=0;i<SLOTS;i++){
+    const slot=document.createElement('div');
+    slot.className='car-v-slot';
+    slot.id='cvs'+i;
+    container.appendChild(slot);
+  }
+}
+
+function fillSlot(slotEl,s){
+  if(!s){slotEl.innerHTML='';return;}
+  const logoHtml=s.logo
+    ?'<div class="car-v-logo"><img src="'+s.logo+'"></div>'
+    :'<div class="car-v-logo" style="font-size:1.6rem">'+(s.emoji||'🏢')+'</div>';
+  slotEl.innerHTML=logoHtml+'<div class="car-v-name">'+esc(s.name)+'</div>'+(s.tagline?'<div class="car-v-tagline">'+esc(s.tagline)+'</div>':'');
+}
+
+function fillVerticalSlots(){
+  if(!sponsors.length)return;
+  for(let i=0;i<SLOTS;i++){
+    const slotEl=document.getElementById('cvs'+i);
+    if(slotEl)fillSlot(slotEl,sponsorAt(carTopIdx+i));
+  }
+}
+
+function advanceVerticalCarousel(){
+  if(!sponsors.length||sponsors.length<=1)return;
+  // Fade out bottom slot
+  const bottomSlot=document.getElementById('cvs'+(SLOTS-1));
+  if(bottomSlot)bottomSlot.classList.add('fading');
+
+  setTimeout(()=>{
+    // Shift content: slot i gets content of slot i+1
+    for(let i=SLOTS-1;i>0;i--){
+      const thisSlot=document.getElementById('cvs'+i);
+      const prevSlot=document.getElementById('cvs'+(i-1));
+      if(thisSlot&&prevSlot)thisSlot.innerHTML=prevSlot.innerHTML;
+    }
+    // Advance index and fill top slot with next sponsor
+    carTopIdx=(carTopIdx+1)%sponsors.length;
+    // Top slot gets the sponsor that is now SLOTS ahead
+    const topSlot=document.getElementById('cvs0');
+    if(topSlot){
+      topSlot.classList.add('fading');
+      fillSlot(topSlot,sponsorAt(carTopIdx));
+      // Slight delay then fade in
+      requestAnimationFrame(()=>{
+        requestAnimationFrame(()=>{
+          topSlot.classList.remove('fading');
+        });
+      });
+    }
+    if(bottomSlot)bottomSlot.classList.remove('fading');
+  },500);
+}
+
+/* ══ UNIFIED CAROUSEL CONTROLLER ══ */
+function buildAllCarousels(){
+  buildPortraitCarousel();
+  buildVerticalSlots();
+  carTopIdx=0;
+  fillVerticalSlots();
+  startCarouselTimer();
+}
+
+function startCarouselTimer(){
+  clearInterval(carTimer);
+  if(sponsors.length<=1)return;
+  // Progress bar for portrait
+  let elapsed=0;
+  const bar=document.getElementById('car-p-progress');
+  if(bar){bar.style.width='0%';}
+  carTimer=setInterval(()=>{
+    elapsed+=100;
+    if(bar)bar.style.width=Math.min(elapsed/CAROUSEL_INTERVAL*100,100)+'%';
+    if(elapsed>=CAROUSEL_INTERVAL){
+      elapsed=0;
+      if(bar)bar.style.width='0%';
+      advancePortraitCarousel();
+      if(isLandscape())advanceVerticalCarousel();
+    }
+  },100);
+}
+
+/* ══ UTILS ══ */
 function esc(str){return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 
-window.addEventListener('resize',()=>refreshGrid());
-window.addEventListener('orientationchange',()=>setTimeout(refreshGrid,150));
+/* ══ RESIZE / ORIENTATION ══ */
+let resizeTimer=null;
+window.addEventListener('resize',()=>{
+  clearTimeout(resizeTimer);
+  resizeTimer=setTimeout(()=>{
+    refreshGrid();
+    applyLayout();
+  },80);
+});
+window.addEventListener('orientationchange',()=>{
+  setTimeout(()=>{refreshGrid();applyLayout();},150);
+});
 
-loadState();buildGrids();setCallMode('type');refreshAll();buildCarousel();
+/* ══ INIT ══ */
+loadState();
+buildGrids();
+setCallMode('type');
+buildVerticalSlots();
+refreshAll();
+applyLayout();
 </script>
 </body>
 </html>
